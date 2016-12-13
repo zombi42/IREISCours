@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">IREIS</string>
     <string name="title_activity_settings">Choix</string>
+    <string name="BeB">Bourg en Bresse</string>
+    <string name="Firm">Firminy</string>
+    <string name="LR">La Ravoire</string>
+    <string name="Ancy">Annecy</string>
 
     <!-- Strings related to Settings -->
 

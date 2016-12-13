@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class Choix extends AppCompatActivity {
+
     RadioGroup m_RB_forma;
     RadioGroup m_RB_promo;
     RadioGroup m_RB_lieu;
@@ -35,22 +36,20 @@ public class Choix extends AppCompatActivity {
                 if(v_rb_f!=null && v_rb_p!=null && v_rb_l!=null) {
                     s_CS.Formation = v_rb_f.getText().toString();
                     s_CS.Promotion = v_rb_p.getText().toString();
-                    switch (v_rb_l.getText().toString())
-                    {
-                        case "Firminy" :
-                            s_CS.Lieu=0;
-                            break;
-                        case "Bourg En Bresse" :
-                            s_CS.Lieu=1;
-                            break;
-                        case "Annecy" :
-                            s_CS.Lieu=2;
-                            break;
-                        case "La Ravoire" :
-                            s_CS.Lieu=3;
-                            break;
 
-                    }
+                        if(v_rb_l.getText().toString().contains(getString(R.string.Firm))) {
+                            s_CS.Lieu = 0;
+                        }
+                         else if(v_rb_l.getText().toString().contains(getString(R.string.BeB))) {
+                            s_CS.Lieu = 1;
+                        }
+                        else if(v_rb_l.getText().toString().contains(getString(R.string.Ancy))) {
+                            s_CS.Lieu = 2;
+                        }
+                        else if(v_rb_l.getText().toString().contains(getString(R.string.LR))) {
+                            s_CS.Lieu = 3;
+                        }
+
                     //TEST
                   //  s_CS = ChoixStatic.getInstance();
                     Intent v_i = new Intent(context, MainActivity.class);

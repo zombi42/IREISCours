@@ -123,7 +123,7 @@
         android:layout_alignParentStart="true">
 
         <RadioButton
-            android:text="Bourg en Bresse"
+            android:text="@string/BeB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView3"
@@ -131,7 +131,7 @@
             android:id="@+id/checkBoxbeb" />
 
         <RadioButton
-            android:text="Annecy"
+            android:text="@string/Ancy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox2"
@@ -139,13 +139,13 @@
             android:id="@+id/checkBoxancy" />
 
         <RadioButton
-            android:text="La Ravoire"
+            android:text="@string/LR"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox3"
             android:id="@+id/checkBoxlr" />
         <RadioButton
-            android:text="Firminy"
+            android:text="@string/Firm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox3"
