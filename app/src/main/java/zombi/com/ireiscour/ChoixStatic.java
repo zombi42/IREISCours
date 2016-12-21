@@ -12,6 +12,8 @@ public class ChoixStatic {
     public String Promotion;
     public String Formation;
     public int Lieu;
+    public String Identifiant;
+    public String MotdePasse;
     private static ChoixStatic INSTANCE=null;
     public static ChoixStatic getInstance()
     {

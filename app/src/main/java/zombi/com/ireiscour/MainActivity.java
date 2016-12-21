@@ -29,34 +29,57 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     String urlFirminy="http://www.ireis.org/getsrv.php?id=2099511";
     String urlUniversal="http://www.ireis.org/getsrv2.php?id=";
+    String urlUniversalHTTPS="https://www.ireis.org/etudiants/getsrv2.php?id=";
     public class MonHandler extends Handler
     {
         @Override
         public void handleMessage(Message msg)
         { super.handleMessage(msg);
+            ArrayList<String> champ = new ArrayList<String>();
             if(msg.what==12) {
                 String xml = (String) msg.obj;
-                table tabletest = gsonXml.fromXml(xml, table.class);
-                ArrayList<String> champ = new ArrayList<String>();
-                ChoixStatic CS=ChoixStatic.getInstance();
-                for (row tmp : tabletest.row) {
-                    if (tmp.Formations.contains(CS.Formation)) { //TODO: Si choix formation
-                        if(tmp.Promotions.contains(CS.Promotion)) {
-                            champ.add(tmp.Date);
-                            champ.add(tmp.Debut);
-                            champ.add(tmp.Fin);
-                            champ.add(tmp.Intervenant);
-                            champ.add(tmp.Intervention);
-                            champ.add(tmp.Salles);
-                            champ.add(tmp.Promotions);
-                            champ.add(tmp.Formations);
-                            champ.add("");
+                if(xml==null)
+                {
+                    champ.add("ERREUR");
+                    champ.add("Le serveur ne repond pas");
+                }
+                else
+                {
+                    table tabletest = gsonXml.fromXml(xml, table.class);
+
+                    ChoixStatic CS = ChoixStatic.getInstance();
+                    if(tabletest.row!=null)
+                    {
+                        for (row tmp : tabletest.row) {
+                            if (tmp.Formations.contains(CS.Formation)) { //TODO: Si choix formation
+                                if (tmp.Promotions.contains(CS.Promotion)) {
+                                    champ.add(tmp.Date);
+                                    champ.add(tmp.Debut);
+                                    champ.add(tmp.Fin);
+                                    champ.add(tmp.Intervenant);
+                                    champ.add(tmp.Intervention);
+                                    champ.add(tmp.Salles);
+                                    champ.add(tmp.Promotions);
+                                    champ.add(tmp.Formations);
+                                    champ.add("");
+                                }
+                            }
                         }
                     }
+                    if(champ.isEmpty())
+                    {
+                        champ.add("Aucun cours pour cette combinaison");
+                    }
                 }
-                ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
-                listCours.setAdapter(adapterr);
+
             }
+            if(msg.what==13)
+            {
+                Toast.makeText(context,"ERREUR ! ID correct ?", Toast.LENGTH_LONG).show();
+                champ.add("ERREUR");
+            }
+            ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+            listCours.setAdapter(adapterr);
 
         }
     }
@@ -356,9 +379,10 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     try {
                         CHttpGet httpg = new CHttpGet(handlermsg, context);
-                        URL url = new URL(urlUniversal+ChoixStatic.getInstance().Lieu);
+                        URL url = new URL(urlUniversalHTTPS+ChoixStatic.getInstance().Lieu);
 
-                        httpg.Connectionhttp(url, 12);
+                      //TODO: TEST  httpg.Connectionhttp(url, 12);
+                        httpg.ConnexionHTTPSAuth(ChoixStatic.getInstance().Identifiant,ChoixStatic.getInstance().MotdePasse,url,12);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
 
