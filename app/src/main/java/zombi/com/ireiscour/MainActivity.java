@@ -1,5 +1,6 @@
 package zombi.com.ireiscour;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -21,10 +22,12 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
     ListView listCours;
+    Activity act;
     GsonXml gsonXml;
     Context context;
     String urlFirminy="http://www.ireis.org/getsrv.php?id=2099511";
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg)
         { super.handleMessage(msg);
             ArrayList<String> champ = new ArrayList<String>();
+            ArrayList<HashMap<String,String>> champv2=new ArrayList<HashMap<String, String>>();
             if(msg.what==12) {
                 String xml = (String) msg.obj;
                 if(xml==null)
@@ -53,15 +57,26 @@ public class MainActivity extends AppCompatActivity {
                         for (row tmp : tabletest.row) {
                             if (tmp.Formations.contains(CS.Formation)) { //TODO: Si choix formation
                                 if (tmp.Promotions.contains(CS.Promotion)) {
+                                    /*
                                     champ.add(tmp.Date);
                                     champ.add(tmp.Debut);
                                     champ.add(tmp.Fin);
                                     champ.add(tmp.Intervenant);
-                                    champ.add(tmp.Intervention);
+                                    champ.add(tmp.Intervention); //COUR
                                     champ.add(tmp.Salles);
                                     champ.add(tmp.Promotions);
                                     champ.add(tmp.Formations);
                                     champ.add("");
+                                    */
+                                    champ.add(tmp.Intervention);
+                                    HashMap<String,String> mappy=new HashMap<String, String>();
+                                    mappy.put("DATE",tmp.Date);
+                                    mappy.put("HEUREDEB",tmp.Debut);
+                                    mappy.put("HEUREFIN",tmp.Fin);
+                                    mappy.put("INTERVENANT",tmp.Intervenant);
+                                    mappy.put("SALLE",tmp.Salles);
+                                    mappy.put("PROMO",tmp.Promotions);
+                                    champv2.add(mappy);
                                 }
                             }
                         }
@@ -69,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
                     if(champ.isEmpty())
                     {
                         champ.add("Aucun cours pour cette combinaison");
+                        ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+                        listCours.setAdapter(adapterr);
+                        return;
                     }
                 }
 
@@ -77,9 +95,16 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(context,"ERREUR ! ID correct ?", Toast.LENGTH_LONG).show();
                 champ.add("ERREUR");
+                ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+                listCours.setAdapter(adapterr);
+                return;
             }
-            ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
-            listCours.setAdapter(adapterr);
+            String[] teststring=new String[champ.size()];
+                    teststring=champ.toArray(teststring);
+            CustomAffichageCours adapteur=new CustomAffichageCours(act,teststring,champv2);
+            listCours.setAdapter(adapteur);
+          //  ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+           // listCours.setAdapter(adapterr);
 
         }
     }
@@ -90,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.openning);
         Gson gson=new Gson();
         context=this;
+        act=this;
         XmlParserCreator parserCreator = new XmlParserCreator() {
             @Override
             public XmlPullParser createParser() {
