@@ -21,4 +21,6 @@ public class row {
     public  String Intervenant;
 
     public    String Intervention;
+
+    public String Groupe;
 }

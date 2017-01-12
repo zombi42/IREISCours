@@ -75,7 +75,16 @@ public class MainActivity extends AppCompatActivity {
                                     mappy.put("HEUREFIN",tmp.Fin);
                                     mappy.put("INTERVENANT",tmp.Intervenant);
                                     mappy.put("SALLE",tmp.Salles);
-                                    mappy.put("PROMO",tmp.Promotions);
+                                   //TEST D'AJOUT DU SICJECTELIER ! SIC JEC ATELIER
+                                    if(tmp.Groupe.contains("SIC"))
+                                        mappy.put("PROMO","SIC");
+                                    else if(tmp.Groupe.contains("JEC"))
+                                        mappy.put("PROMO","JEC");
+                                    else if(tmp.Groupe.contains("ATELIER"))
+                                        mappy.put("PROMO","ATELIER");
+                                    else
+                                        mappy.put("PROMO","");
+                                    /// / mappy.put("PROMO",tmp.Promotions);
                                     champv2.add(mappy);
                                 }
                             }
