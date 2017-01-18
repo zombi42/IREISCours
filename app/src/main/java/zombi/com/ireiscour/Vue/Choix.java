@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Vue;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import zombi.com.ireiscour.Model.ChoixStatic;
+import zombi.com.ireiscour.R;
 
 public class Choix extends AppCompatActivity {
 

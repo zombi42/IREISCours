@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Control;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

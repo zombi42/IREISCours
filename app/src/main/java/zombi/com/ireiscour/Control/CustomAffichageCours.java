@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Control;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import zombi.com.ireiscour.R;
 
 /**
  * Created by maxime on 05/01/17.

@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Vue;
 
 import android.app.Activity;
 import android.content.Context;
@@ -23,6 +23,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import zombi.com.ireiscour.Control.CHttpGet;
+import zombi.com.ireiscour.Model.ChoixStatic;
+import zombi.com.ireiscour.Control.CustomAffichageCours;
+import zombi.com.ireiscour.R;
+import zombi.com.ireiscour.Model.row;
+import zombi.com.ireiscour.Model.table;
 
 
 public class MainActivity extends AppCompatActivity {

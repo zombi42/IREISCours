@@ -1,7 +1,9 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Control;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import zombi.com.ireiscour.Model.ChoixStatic;
 
 /**
  * Created by maxime on 09/12/16.

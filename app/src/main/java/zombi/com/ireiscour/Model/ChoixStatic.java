@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Model;
 
 /**
  * Created by maxime on 09/12/16.
