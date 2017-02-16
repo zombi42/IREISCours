@@ -24,11 +24,24 @@ public class Choix extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix);
         Button v_b_ok;
+        Button v_b_planning;
         context =this;
+        v_b_planning= (Button) findViewById(R.id.planing);
         v_b_ok= (Button) findViewById(R.id.OK);
         m_RB_forma=(RadioGroup) findViewById(R.id.radioGroupF);
         m_RB_promo=(RadioGroup) findViewById(R.id.radioGroupP);
         m_RB_lieu=(RadioGroup) findViewById(R.id.radioGroupL);
+        v_b_planning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChoixStatic s_CS=ChoixStatic.getInstance();
+                s_CS.Mode=1;
+                s_CS.Lieu=4;
+                Intent v_i = new Intent(context, MainActivity.class);
+                v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(v_i);
+            }
+        });
         v_b_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +52,7 @@ public class Choix extends AppCompatActivity {
                 if(v_rb_f!=null && v_rb_p!=null && v_rb_l!=null) {
                     s_CS.Formation = v_rb_f.getText().toString();
                     s_CS.Promotion = v_rb_p.getText().toString();
+                    s_CS.Mode=0;
 
                         if(v_rb_l.getText().toString().contains(getString(R.string.Firm))) {
                             s_CS.Lieu = 0;

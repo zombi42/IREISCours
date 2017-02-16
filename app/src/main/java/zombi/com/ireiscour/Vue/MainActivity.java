@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
                     if(tabletest.row!=null)
                     {
                         for (row tmp : tabletest.row) {
-                            if (tmp.Formations.contains(CS.Formation)) { //TODO: Si choix formation
-                                if (tmp.Promotions.contains(CS.Promotion)) {
+                            if (tmp.Formations.contains(CS.Formation )|| ChoixStatic.getInstance().Mode==1) { 
+                                if (tmp.Promotions.contains(CS.Promotion)|| ChoixStatic.getInstance().Mode==1) {
                                     /*
                                     champ.add(tmp.Date);
                                     champ.add(tmp.Debut);
@@ -83,14 +83,17 @@ public class MainActivity extends AppCompatActivity {
                                     mappy.put("INTERVENANT",tmp.Intervenant);
                                     mappy.put("SALLE",tmp.Salles);
                                    //TEST D'AJOUT DU SICJECTELIER ! SIC JEC ATELIER
-                                    if(tmp.Groupe.contains("SIC"))
-                                        mappy.put("PROMO","SIC");
-                                    else if(tmp.Groupe.contains("JEC"))
-                                        mappy.put("PROMO","JEC");
-                                    else if(tmp.Groupe.contains("ATELIER"))
-                                        mappy.put("PROMO","ATELIER");
-                                    else
-                                        mappy.put("PROMO","");
+                                    if(CS.Mode==0)
+                                    {
+                                        if (tmp.Groupe.contains("SIC"))
+                                            mappy.put("PROMO", "SIC");
+                                        else if (tmp.Groupe.contains("JEC"))
+                                            mappy.put("PROMO", "JEC");
+                                        else if (tmp.Groupe.contains("ATELIER"))
+                                            mappy.put("PROMO", "ATELIER");
+                                        else
+                                            mappy.put("PROMO", "");
+                                    }
                                     /// / mappy.put("PROMO",tmp.Promotions);
                                     champv2.add(mappy);
                                 }
@@ -129,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.openning);
-        Gson gson=new Gson();
+        //Gson gson=new Gson();
         context=this;
         act=this;
         XmlParserCreator parserCreator = new XmlParserCreator() {
@@ -410,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
        //     champ.add(tmp.Salles);
        //     champ.add(tmp.Promotions);
         //    champ.add(tmp.Formations);
-            champ.add("");
+           // champ.add("");
        // }
         ArrayAdapter<String> adapterr=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,champ);
         listCours.setAdapter(adapterr);
@@ -421,7 +424,14 @@ public class MainActivity extends AppCompatActivity {
                 public void run() {
                     try {
                         CHttpGet httpg = new CHttpGet(handlermsg, context);
-                        URL url = new URL(urlUniversalHTTPS+ChoixStatic.getInstance().Lieu);
+                        URL url=null;
+                        if(ChoixStatic.getInstance().Mode==0) {
+                             url = new URL(urlUniversalHTTPS + ChoixStatic.getInstance().Lieu);
+                        }
+                        else if(ChoixStatic.getInstance().Mode==1)
+                        {
+                             url = new URL(urlUniversalHTTPS + ChoixStatic.getInstance().Lieu + "&login=" + ChoixStatic.getInstance().Identifiant);
+                        }
 
                       //TODO: TEST  httpg.Connectionhttp(url, 12);
                         httpg.ConnexionHTTPSAuth(ChoixStatic.getInstance().Identifiant,ChoixStatic.getInstance().MotdePasse,url,12);

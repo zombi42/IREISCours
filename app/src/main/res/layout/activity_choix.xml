@@ -24,6 +24,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/radioGroupF">
 
     <RadioButton
@@ -32,7 +33,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/ASS"
         android:layout_below="@+id/ES"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <RadioButton
         android:text="AES"
@@ -40,7 +42,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/AES"
         android:layout_below="@+id/ASS"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <RadioButton
         android:text="ME"
@@ -48,14 +51,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/ME"
         android:layout_below="@+id/AES"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
         <RadioButton
             android:text="ASS"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ES"
             android:layout_below="@+id/textView"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"/>
     </RadioGroup>
 
     <RadioGroup
@@ -71,6 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/checkBox2" />
 
     <RadioButton
@@ -79,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBox2"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/checkBox3" />
 
     <RadioButton
@@ -96,15 +103,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView3"
         android:layout_below="@+id/radioGroupF"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="OK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/OK"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:text="LIEU"
@@ -112,7 +112,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/textViewLieu"
         android:layout_below="@+id/radioGroupP"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -120,7 +121,8 @@
         android:orientation="vertical"
         android:id="@+id/radioGroupL"
         android:layout_below="@+id/textViewLieu"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
 
         <RadioButton
             android:text="@string/BeB"
@@ -128,6 +130,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView3"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:id="@+id/checkBoxbeb" />
 
         <RadioButton
@@ -136,6 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/checkBox2"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:id="@+id/checkBoxancy" />
 
         <RadioButton
@@ -153,8 +157,40 @@
 
     </RadioGroup>
 
+    <TextView
+        android:text="Ou"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/OK"
+        android:layout_toRightOf="@+id/OK"
+        android:layout_toEndOf="@+id/OK"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/textView4" />
+
+    <Button
+        android:text="Valider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/OK"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="Mon Planning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/planing"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/radioGroupL"
+        android:layout_toEndOf="@+id/radioGroupL" />
+    <![CDATA[
+
 
     />
 
 
+]]>
 </RelativeLayout>
