@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     if(tabletest.row!=null)
                     {
                         for (row tmp : tabletest.row) {
-                            if (tmp.Formations.contains(CS.Formation )|| ChoixStatic.getInstance().Mode==1) { 
+                            if (tmp.Formations.contains(CS.Formation )|| ChoixStatic.getInstance().Mode==1) {
                                 if (tmp.Promotions.contains(CS.Promotion)|| ChoixStatic.getInstance().Mode==1) {
                                     /*
                                     champ.add(tmp.Date);
