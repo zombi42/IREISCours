@@ -62,7 +62,18 @@ public class MainActivity extends AppCompatActivity {
                     if(tabletest.row!=null)
                     {
                         for (row tmp : tabletest.row) {
-                            if (tmp.Formations.contains(CS.Formation )|| ChoixStatic.getInstance().Mode==1) {
+                            if(ChoixStatic.getInstance().Mode==1)
+                            {
+                                champ.add(tmp.Intervention);
+                                HashMap<String,String> mappy=new HashMap<String, String>();
+                                mappy.put("DATE",tmp.Date);
+                                mappy.put("HEUREDEB",tmp.Debut);
+                                mappy.put("HEUREFIN",tmp.Fin);
+                                mappy.put("INTERVENANT",tmp.Intervenant);
+                                mappy.put("SALLE",tmp.Salles);
+                                champv2.add(mappy);
+                            }
+                            else if (tmp.Formations.contains(CS.Formation )|| ChoixStatic.getInstance().Mode==1) {
                                 if (tmp.Promotions.contains(CS.Promotion)|| ChoixStatic.getInstance().Mode==1) {
                                     /*
                                     champ.add(tmp.Date);
@@ -131,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.openning);
+        setContentView(R.layout.activity_main);
         //Gson gson=new Gson();
         context=this;
         act=this;
