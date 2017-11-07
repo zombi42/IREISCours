@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.stanfy.gsonxml.GsonXml;
 import com.stanfy.gsonxml.GsonXmlBuilder;
 import com.stanfy.gsonxml.XmlParserCreator;
@@ -33,20 +32,20 @@ import zombi.com.ireiscour.Model.table;
 
 
 public class MainActivity extends AppCompatActivity {
-    ListView listCours;
-    Activity act;
-    GsonXml gsonXml;
-    Context context;
-    String urlFirminy="http://www.ireis.org/getsrv.php?id=2099511";
-    String urlUniversal="http://www.ireis.org/getsrv2.php?id=";
+    static ListView listCours;
+    static Activity act;
+    static GsonXml gsonXml;
+    static Context context;
+    //String urlFirminy="http://www.ireis.org/getsrv.php?id=2099511";
+  //  String urlUniversal="http://www.ireis.org/getsrv2.php?id=";
     String urlUniversalHTTPS="https://www.ireis.org/etudiants/getsrv2.php?id=";
-    public class MonHandler extends Handler
+    public static class MonHandler extends Handler
     {
         @Override
         public void handleMessage(Message msg)
         { super.handleMessage(msg);
-            ArrayList<String> champ = new ArrayList<String>();
-            ArrayList<HashMap<String,String>> champv2=new ArrayList<HashMap<String, String>>();
+            ArrayList<String> champ = new ArrayList<>();
+            ArrayList<HashMap<String,String>> champv2=new ArrayList<>();
             if(msg.what==12) {
                 String xml = (String) msg.obj;
                 if(xml==null)
@@ -65,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                             if(ChoixStatic.getInstance().Mode==1)
                             {
                                 champ.add(tmp.Intervention);
-                                HashMap<String,String> mappy=new HashMap<String, String>();
+                                HashMap<String,String> mappy=new HashMap<>();
                                 mappy.put("DATE",tmp.Date);
                                 mappy.put("HEUREDEB",tmp.Debut);
                                 mappy.put("HEUREFIN",tmp.Fin);
@@ -87,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                                     champ.add("");
                                     */
                                     champ.add(tmp.Intervention);
-                                    HashMap<String,String> mappy=new HashMap<String, String>();
+                                    HashMap<String,String> mappy=new HashMap<>();
                                     mappy.put("DATE",tmp.Date);
                                     mappy.put("HEUREDEB",tmp.Debut);
                                     mappy.put("HEUREFIN",tmp.Fin);
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     if(champ.isEmpty())
                     {
                         champ.add("Aucun cours pour cette combinaison");
-                        ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+                        ArrayAdapter<String> adapterr=new ArrayAdapter<>(context,android.R.layout.simple_list_item_1,champ);
                         listCours.setAdapter(adapterr);
                         return;
                     }
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(context,"ERREUR ! ID correct ?", Toast.LENGTH_LONG).show();
                 champ.add("ERREUR");
-                ArrayAdapter<String> adapterr=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,champ);
+                ArrayAdapter<String> adapterr= new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, champ);
                 listCours.setAdapter(adapterr);
                 return;
             }
@@ -161,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                 .setSameNameLists(true)
                 .create();
         //Test Exemple
-       String xml;
+      // String xml;
        // xml= "<model><name>my name</name><description>my description</description></model>";
         //Test Table + row
      /*    xml="<table>\n" +
@@ -414,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
        // ArrayList<String> adapter = new Arr
       // ArrayAdapter<row> adapterr = new ArrayAdapter<row>(this,android.R.layout.simple_list_item_1,tabletest.row);
       //  table tabletest = gsonXml.fromXml(xml,table.class);
-        ArrayList<String> champ=new ArrayList<String>();
+        ArrayList<String> champ= new ArrayList<>();
       //  for (row tmp: tabletest.row   )
       //  {
          champ.add("CHARGEMENT");
@@ -426,7 +425,7 @@ public class MainActivity extends AppCompatActivity {
         //    champ.add(tmp.Formations);
            // champ.add("");
        // }
-        ArrayAdapter<String> adapterr=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,champ);
+        ArrayAdapter<String> adapterr=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,champ);
         listCours.setAdapter(adapterr);
         if(CHttpGet.checkConn(context)) {
             handlermsg = new MonHandler();
@@ -444,7 +443,6 @@ public class MainActivity extends AppCompatActivity {
                              url = new URL(urlUniversalHTTPS + ChoixStatic.getInstance().Lieu + "&login=" + ChoixStatic.getInstance().Identifiant);
                         }
 
-                      //TODO: TEST  httpg.Connectionhttp(url, 12);
                         httpg.ConnexionHTTPSAuth(ChoixStatic.getInstance().Identifiant,ChoixStatic.getInstance().MotdePasse,url,12);
                     } catch (IOException e) {
                         throw new RuntimeException(e);

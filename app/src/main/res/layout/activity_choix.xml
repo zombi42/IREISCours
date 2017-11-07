@@ -79,7 +79,7 @@
         android:id="@+id/radioGroupP" >
 
     <RadioButton
-        android:text="PARKS"
+        android:text="@string/anneeTROIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
@@ -88,7 +88,7 @@
         android:id="@+id/checkBox2" />
 
     <RadioButton
-        android:text="QUINO"
+        android:text="@string/anneeDEUX"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBox2"
@@ -97,7 +97,7 @@
         android:id="@+id/checkBox3" />
 
     <RadioButton
-        android:text="RAVACHOL"
+        android:text="@string/anneeUNE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/checkBox3"

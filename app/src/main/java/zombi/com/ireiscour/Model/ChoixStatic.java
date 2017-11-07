@@ -17,7 +17,7 @@ public class ChoixStatic {
     public int Lieu;
     public String Identifiant;
     public String MotdePasse;
-    public short Mode;
+    public short Mode; // 1 = LE MIEN , 0 = GENERIQUE
     private static ChoixStatic INSTANCE=null;
     public static ChoixStatic getInstance()
     {
