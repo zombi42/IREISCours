@@ -2,12 +2,14 @@ package zombi.com.ireiscour.Vue;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import zombi.com.ireiscour.Model.ChoixStatic;
@@ -18,19 +20,34 @@ public class Choix extends AppCompatActivity {
     RadioGroup m_RB_forma;
     RadioGroup m_RB_promo;
     RadioGroup m_RB_lieu;
+    TextView m_TV_totalABS;
+    TextView m_TV_totalHO;
     Context context;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        m_TV_totalABS=(TextView) findViewById(R.id.textABS);
+        m_TV_totalABS.setText("Total Absence : "+ChoixStatic.getInstance().TotalABS);
+        m_TV_totalHO=(TextView) findViewById(R.id.textHO);
+        m_TV_totalHO.setText("Total Heure Optionnel : "+ChoixStatic.getInstance().TotalHO);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix);
         Button v_b_ok;
+        Button v_b_actu;
         Button v_b_planning;
         context =this;
         v_b_planning= (Button) findViewById(R.id.planing);
         v_b_ok= (Button) findViewById(R.id.OK);
+        v_b_actu= (Button) findViewById(R.id.Actu);
         m_RB_forma=(RadioGroup) findViewById(R.id.radioGroupF);
         m_RB_promo=(RadioGroup) findViewById(R.id.radioGroupP);
         m_RB_lieu=(RadioGroup) findViewById(R.id.radioGroupL);
+
         v_b_planning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +56,20 @@ public class Choix extends AppCompatActivity {
                 s_CS.Lieu=4;
                 Intent v_i = new Intent(context, MainActivity.class);
                 v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+//                String url = "https://www.ireis.org/etudiants/";
+//                v_i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                getApplicationContext().startActivity(v_i);
+            }
+        });
+        v_b_actu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent v_i = new Intent(context, News_Intranet.class);
+                v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+//                String url = "https://www.ireis.org/etudiants/";
+//                v_i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 getApplicationContext().startActivity(v_i);
             }
         });

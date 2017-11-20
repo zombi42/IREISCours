@@ -19,7 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Vue.MainActivity" />
-        <activity android:name=".Vue.Choix"></activity>
+        <activity android:name=".Vue.Intranet" />
+        <activity android:name=".Vue.Choix" />
+        <activity
+            android:name=".Vue.News_Intranet"
+            android:label="@string/title_activity_news__intranet"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,14 @@
     tools:context="zombi.com.ireiscour.Vue.Choix">
 
     <TextView
+        android:id="@+id/textHO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textABS"
+        android:text="Heure Optionnel : " />
+
+    <TextView
         android:text="FORMATION"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,40 +173,35 @@
 
     </RadioGroup>
 
-    <TextView
-        android:text="Ou"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/OK"
-        android:layout_toRightOf="@+id/OK"
-        android:layout_toEndOf="@+id/OK"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/textView4" />
-
     <Button
-        android:text="Valider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/OK"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:text="Mon Planning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioGroupL"
+        android:text="Valider" />
+
+    <Button
         android:id="@+id/planing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/radioGroupL"
-        android:layout_toEndOf="@+id/radioGroupL" />
-    <![CDATA[
+        android:layout_alignParentEnd="true"
+        android:text="Mon Planning" />
 
+    <TextView
+        android:id="@+id/textABS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/OK"
+        android:text="Heure Absence : " />
 
-    />
-
-
-]]>
+    <Button
+        android:id="@+id/Actu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/planing"
+        android:layout_alignParentEnd="true"
+        android:text="Actu" />
 </RelativeLayout>

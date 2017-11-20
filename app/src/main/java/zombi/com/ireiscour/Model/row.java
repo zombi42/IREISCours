@@ -24,4 +24,8 @@ public class row {
     public    String Intervention;
 
     public String Groupe;
+
+    public float totalABS;
+
+    public float totalHO;
 }

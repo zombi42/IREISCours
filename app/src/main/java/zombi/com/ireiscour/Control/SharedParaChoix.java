@@ -24,6 +24,9 @@ public class SharedParaChoix {
         ChoixStatic.getInstance().Formation=setting.getString("FORM",null);
         ChoixStatic.getInstance().Lieu=setting.getInt("WHERE",99);
         ChoixStatic.getInstance().Promotion=setting.getString("PROMO",null);
+        ChoixStatic.getInstance().TotalABS=setting.getFloat("TOTALABS",0);
+        ChoixStatic.getInstance().TotalHO=setting.getFloat("TOTALHO",0);
+        ChoixStatic.getInstance().NumeroSemaine=setting.getInt("SEMAINE",0);
         }
     public static void SaveChoixStatic(Context context)
     {
@@ -34,6 +37,9 @@ public class SharedParaChoix {
         editor.putString("FORM",ChoixStatic.getInstance().Formation);
         editor.putInt("WHERE",ChoixStatic.getInstance().Lieu);
         editor.putString("PROMO",ChoixStatic.getInstance().Promotion);
+        editor.putFloat("TOTALABS",ChoixStatic.getInstance().TotalABS);
+        editor.putFloat("TOTALHO",ChoixStatic.getInstance().TotalHO);
+        editor.putInt("SEMAINE",ChoixStatic.getInstance().NumeroSemaine);
         editor.commit();
 
     }
