@@ -27,10 +27,6 @@ public class Choix extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        m_TV_totalABS=(TextView) findViewById(R.id.textABS);
-        m_TV_totalABS.setText("Total Absence : "+ChoixStatic.getInstance().TotalABS);
-        m_TV_totalHO=(TextView) findViewById(R.id.textHO);
-        m_TV_totalHO.setText("Total Heure Optionnel : "+ChoixStatic.getInstance().TotalHO);
     }
 
     @Override
@@ -41,38 +37,12 @@ public class Choix extends AppCompatActivity {
         Button v_b_actu;
         Button v_b_planning;
         context =this;
-        v_b_planning= (Button) findViewById(R.id.planing);
         v_b_ok= (Button) findViewById(R.id.OK);
-        v_b_actu= (Button) findViewById(R.id.Actu);
         m_RB_forma=(RadioGroup) findViewById(R.id.radioGroupF);
         m_RB_promo=(RadioGroup) findViewById(R.id.radioGroupP);
         m_RB_lieu=(RadioGroup) findViewById(R.id.radioGroupL);
 
-        v_b_planning.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChoixStatic s_CS=ChoixStatic.getInstance();
-                s_CS.Mode=1;
-                s_CS.Lieu=4;
-                Intent v_i = new Intent(context, MainActivity.class);
-                v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-//                String url = "https://www.ireis.org/etudiants/";
-//                v_i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                getApplicationContext().startActivity(v_i);
-            }
-        });
-        v_b_actu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent v_i = new Intent(context, News_Intranet.class);
-                v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-//                String url = "https://www.ireis.org/etudiants/";
-//                v_i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                getApplicationContext().startActivity(v_i);
-            }
-        });
         v_b_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -27,6 +27,7 @@ public class SharedParaChoix {
         ChoixStatic.getInstance().TotalABS=setting.getFloat("TOTALABS",0);
         ChoixStatic.getInstance().TotalHO=setting.getFloat("TOTALHO",0);
         ChoixStatic.getInstance().NumeroSemaine=setting.getInt("SEMAINE",0);
+        ChoixStatic.getInstance().DerniereABS=setting.getString("DERNIEREABS","Aucune");
         }
     public static void SaveChoixStatic(Context context)
     {
@@ -40,6 +41,7 @@ public class SharedParaChoix {
         editor.putFloat("TOTALABS",ChoixStatic.getInstance().TotalABS);
         editor.putFloat("TOTALHO",ChoixStatic.getInstance().TotalHO);
         editor.putInt("SEMAINE",ChoixStatic.getInstance().NumeroSemaine);
+        editor.putString("DERNIEREABS",ChoixStatic.getInstance().DerniereABS);
         editor.commit();
 
     }

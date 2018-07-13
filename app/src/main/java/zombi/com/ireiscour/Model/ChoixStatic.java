@@ -23,6 +23,7 @@ public class ChoixStatic {
     public float TotalABS;
     public float TotalHO;
     public int NumeroSemaine;
+    public String DerniereABS;
     private static ChoixStatic INSTANCE=null;
     public static ChoixStatic getInstance()
     {

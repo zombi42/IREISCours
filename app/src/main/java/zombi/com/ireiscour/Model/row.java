@@ -28,4 +28,6 @@ public class row {
     public float totalABS;
 
     public float totalHO;
+
+    public String DateAbsence;
 }

@@ -5,9 +5,12 @@
     <string name="Firm">Firminy</string>
     <string name="LR">La Ravoire</string>
     <string name="Ancy">Annecy</string>
-    <string name="anneeUNE">SULLEROT</string>
-    <string name="anneeDEUX">RAVACHOL</string>
-    <string name="anneeTROIS">QUINO</string>
+    <string name="anneeUNE">T</string>
+    <string name="anneeDEUX">SULLEROT</string>
+    <string name="anneeTROIS">RAVACHOL</string>
+    <string name="heureAbsence">Absence :</string>
+    <string name="heureOp">Heure Optionnel :</string>
+    <string name="DerniereABS">Dernière absence : </string>
 
     <!-- Strings related to Settings -->
 

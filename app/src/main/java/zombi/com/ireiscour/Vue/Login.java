@@ -23,9 +23,9 @@ public class Login extends AppCompatActivity {
         EditText v_t_pwd=(EditText) findViewById(R.id.motdepasse);
 
         ChoixStatic CS=ChoixStatic.getInstance();
-        CS.Identifiant=v_t_id.getText().toString();
+        CS.Identifiant=v_t_id.getText().toString().toLowerCase();
         CS.MotdePasse=v_t_pwd.getText().toString();
-        Intent v_i = new Intent(context, Choix.class);
+        Intent v_i = new Intent(context, Choix_principal.class);
         SharedParaChoix.SaveChoixStatic(context);
         v_i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getApplicationContext().startActivity(v_i);

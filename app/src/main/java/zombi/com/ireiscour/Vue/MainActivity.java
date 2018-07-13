@@ -136,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
                     {
                         for (row tmp : tabletest.row) {
 
-                                ChoixStatic.getInstance().TotalABS=tmp.totalABS;
+
+                            ChoixStatic.getInstance().TotalABS=tmp.totalABS;
                             SharedParaChoix.SaveChoixStatic(context);
                                                    }
                     }
