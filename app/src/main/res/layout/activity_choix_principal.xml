@@ -18,6 +18,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
+        android:background="@drawable/button_background"
+        android:textColor="@color/colorGris"
         android:text="Mon Planning" />
 
     <Button
@@ -25,15 +27,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/button_mon_planing"
-        android:layout_toEndOf="@+id/button_mon_planing"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background_news"
+        android:textColor="@color/colorGris"
         android:text="News" />
 
     <Button
         android:id="@+id/button_Autre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button_mon_planing"
-        android:layout_toStartOf="@+id/button_mon_planing"
+        android:layout_above="@+id/button_actu"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background_autre"
         android:text="Autre Planning" />
 
     <TextView
@@ -48,7 +53,7 @@
         android:id="@+id/textview_nbABS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button_Autre"
+        android:layout_alignStart="@+id/textviex_information"
         android:layout_below="@+id/textviex_information"
         android:text="nombre d'absences :" />
 
@@ -56,7 +61,7 @@
         android:id="@+id/textView_nbHO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button_Autre"
+        android:layout_alignStart="@+id/textviex_information"
         android:layout_below="@+id/textview_nbABS"
         android:text="Nombre d'heure personnel :" />
 
@@ -64,7 +69,7 @@
         android:id="@+id/textView_derniereABS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button_Autre"
+        android:layout_alignStart="@+id/textviex_information"
         android:layout_below="@+id/textView_nbHO"
         android:text="Dernière absence :" />
 
@@ -72,7 +77,8 @@
         android:id="@+id/button_actualise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/button_Autre"
         android:layout_below="@+id/textView_derniereABS"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_background_actualise"
         android:text="Actualiser" />
 </RelativeLayout>
