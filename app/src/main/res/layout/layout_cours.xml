@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout android:id="@+id/Cadre"
+        android:layout_width="90dip"
+        android:layout_height="90dip"
+        android:padding="1dip"
+        android:layout_alignParentLeft="true"
+        android:background="@color/colorGris"
+        android:layout_marginRight="5dip">
+
+        <TextView
+            android:id="@+id/cadreDate"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="Date"
+            android:textColor="@color/colorAccent"
+           />
+        <TextView
+            android:id="@+id/cadreHeureDebut"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_below="@+id/cadreDate"
+            android:text="Heure debut"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentStart="true"
+
+            />
+        <TextView
+            android:id="@+id/cadreHeureFin"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_below="@+id/cadreHeureDebut"
+            android:text="Heure Fin"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentStart="true"
+
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dip"
+        android:layout_alignTop="@+id/Cadre"
+        android:layout_toRightOf="@+id/Cadre"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:text="Tu casse les couille avec tes majuscule "
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/Cour"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:layout_below="@+id/Cour"
+            android:text="Tu casse les couille avec tes majuscule "
+            android:textStyle="normal"
+            android:gravity="center"
+            android:id="@+id/Intervenant"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:text="Tu casse  "
+            android:textStyle="normal"
+            android:textColor="@color/colorRose"
+            android:gravity="center"
+            android:id="@+id/Ppromo"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+
+            android:layout_alignTop="@id/Ppromo"
+            android:text="Tu casse  Tu casse Tu casse "
+            android:textStyle="normal"
+
+            android:gravity="center"
+            android:id="@+id/Salle"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/Ppromo" />
+
+
+    </RelativeLayout>
+
+</TableRow>

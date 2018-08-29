@@ -1,31 +1,48 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Vue;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import zombi.com.ireiscour.Model.ChoixStatic;
+import zombi.com.ireiscour.R;
 
 public class Choix extends AppCompatActivity {
 
     RadioGroup m_RB_forma;
     RadioGroup m_RB_promo;
     RadioGroup m_RB_lieu;
+    TextView m_TV_totalABS;
+    TextView m_TV_totalHO;
     Context context;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix);
         Button v_b_ok;
+        Button v_b_actu;
+        Button v_b_planning;
         context =this;
         v_b_ok= (Button) findViewById(R.id.OK);
         m_RB_forma=(RadioGroup) findViewById(R.id.radioGroupF);
         m_RB_promo=(RadioGroup) findViewById(R.id.radioGroupP);
         m_RB_lieu=(RadioGroup) findViewById(R.id.radioGroupL);
+
+
         v_b_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +53,7 @@ public class Choix extends AppCompatActivity {
                 if(v_rb_f!=null && v_rb_p!=null && v_rb_l!=null) {
                     s_CS.Formation = v_rb_f.getText().toString();
                     s_CS.Promotion = v_rb_p.getText().toString();
+                    s_CS.Mode=0;
 
                         if(v_rb_l.getText().toString().contains(getString(R.string.Firm))) {
                             s_CS.Lieu = 0;

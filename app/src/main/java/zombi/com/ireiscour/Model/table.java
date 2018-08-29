@@ -1,4 +1,4 @@
-package zombi.com.ireiscour;
+package zombi.com.ireiscour.Model;
 
 import java.util.List;
 
@@ -7,5 +7,5 @@ import java.util.List;
  */
 
 public class table {
-    public List<row> row;
+    public List<zombi.com.ireiscour.Model.row> row;
 }
